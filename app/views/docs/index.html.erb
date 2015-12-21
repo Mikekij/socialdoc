@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Docs</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Homepage url</th>
+      <th>Phone</th>
+      <th>Personal phone</th>
+      <th>Email</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docs.each do |doc| %>
+      <tr>
+        <td><%= link_to "#{doc.first_name} #{doc.last_name}, #{doc.title}", doc %></td>
+        <td><%= doc.homepage_url %></td>
+
+        <td><%= doc.phone %></td>
+        <td><%= doc.personal_phone %></td>
+        <td><%= doc.email %></td>
+        <td><%= link_to 'Edit', edit_doc_path(doc) %></td>
+        <td><%= link_to ('<i class="glyphicon glyphicon-trash"></i>').html_safe, doc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doc', new_doc_path %>

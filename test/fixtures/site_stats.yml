@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doc_site_id: 1
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  url: MyString
+  hours: MyString
+  review_count: 1
+  one_star_count: 1
+  five_star_count: 1
+  avg_rating: 1.5
+  search_rank: 1
+  first_page: false
+
+two:
+  doc_site_id: 1
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  url: MyString
+  hours: MyString
+  review_count: 1
+  one_star_count: 1
+  five_star_count: 1
+  avg_rating: 1.5
+  search_rank: 1
+  first_page: false

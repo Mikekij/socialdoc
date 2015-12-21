@@ -1,0 +1,31 @@
+<%= form_for(@doc_site) do |f| %>
+  <% if @doc_site.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doc_site.errors.count, "error") %> prohibited this doc_site from being saved:</h2>
+
+      <ul>
+      <% @doc_site.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :doc_id %><br>
+    <%= f.collection_select(:doc_id, @docs, :id, :name_doctorized, prompt: true) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :tracked_site_id %><br>
+    <%= f.collection_select(:tracked_site_id, @tracked_sites, :id, :name, prompt: true) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

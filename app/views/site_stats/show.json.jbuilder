@@ -1,0 +1,1 @@
+json.extract! @site_stat, :id, :doc_site_id, :address_1, :address_2, :city, :state, :zip, :phone, :url, :hours, :review_count, :one_star_count, :five_star_count, :avg_rating, :search_rank, :first_page, :created_at, :updated_at

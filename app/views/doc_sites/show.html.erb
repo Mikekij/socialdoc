@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Doc:</strong>
+  <%= @doc_site.doc_id %>
+</p>
+
+<p>
+  <strong>Tracked site:</strong>
+  <%= @doc_site.tracked_site_id %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @doc_site.url %>
+</p>
+
+<%= link_to 'Edit', edit_doc_site_path(@doc_site) %> |
+<%= link_to 'Back', doc_sites_path %>

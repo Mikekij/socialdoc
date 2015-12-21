@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Site Stats</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Doc site</th>
+      <th>Avg rating</th>
+      <th>Search rank</th>
+      <th>First page</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @site_stats.each do |site_stat| %>
+      <tr>
+        <td><%= link_to site_stat.doc_site_id, site_stat %></td>
+        <td><%= site_stat.avg_rating %></td>
+        <td><%= site_stat.search_rank %></td>
+        <td><%= site_stat.first_page %></td>
+        <td><%= link_to 'Edit', edit_site_stat_path(site_stat) %></td>
+        <td><%= link_to ('<i class="glyphicon glyphicon-trash"></i>').html_safe, site_stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Site stat', new_site_stat_path %>

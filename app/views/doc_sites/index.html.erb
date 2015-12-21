@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Doc Sites</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Doc</th>
+      <th>Tracked site</th>
+      <th>Url</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doc_sites.each do |doc_site| %>
+      <tr>
+        <td><%= link_to doc_site.doc.name_doctorized, doc_site.doc %></td>
+        <td><%= link_to doc_site.tracked_site.name, doc_site.tracked_site %></td>
+        <td style="max-width:300px; overflow:hidden;"><%= link_to doc_site.url, doc_site.url, target: "_blank" %></td>
+        <td><%= link_to 'Edit', edit_doc_site_path(doc_site) %></td>
+        <td><%= link_to ('<i class="glyphicon glyphicon-trash"></i>').html_safe, doc_site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doc site', new_doc_site_path %>

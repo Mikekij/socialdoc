@@ -1,0 +1,3 @@
+page.at('meta[@itemprop="ratingValue"]')[:content]
+#gets the metadata value from zocdoc
+#should probably record each comment / review

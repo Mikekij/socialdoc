@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Doc site:</strong>
+  <%= @site_stat.doc_site_id %>
+</p>
+
+<p>
+  <strong>Address 1:</strong>
+  <%= @site_stat.address_1 %>
+</p>
+
+<p>
+  <strong>Address 2:</strong>
+  <%= @site_stat.address_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @site_stat.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @site_stat.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @site_stat.zip %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @site_stat.phone %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @site_stat.url %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @site_stat.hours %>
+</p>
+
+<p>
+  <strong>Review count:</strong>
+  <%= @site_stat.review_count %>
+</p>
+
+<p>
+  <strong>One star count:</strong>
+  <%= @site_stat.one_star_count %>
+</p>
+
+<p>
+  <strong>Five star count:</strong>
+  <%= @site_stat.five_star_count %>
+</p>
+
+<p>
+  <strong>Avg rating:</strong>
+  <%= @site_stat.avg_rating %>
+</p>
+
+<p>
+  <strong>Search rank:</strong>
+  <%= @site_stat.search_rank %>
+</p>
+
+<p>
+  <strong>First page:</strong>
+  <%= @site_stat.first_page %>
+</p>
+
+<%= link_to 'Edit', edit_site_stat_path(@site_stat) %> |
+<%= link_to 'Back', site_stats_path %>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @doc.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @doc.last_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @doc.title %>
+</p>
+
+<p>
+  <strong>Homepage url:</strong>
+  <%= @doc.homepage_url %>
+</p>
+
+<p>
+  <strong>Address 1:</strong>
+  <%= @doc.address_1 %>
+</p>
+
+<p>
+  <strong>Address 2:</strong>
+  <%= @doc.address_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @doc.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @doc.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @doc.zip %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @doc.phone %>
+</p>
+
+<p>
+  <strong>Personal phone:</strong>
+  <%= @doc.personal_phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @doc.email %>
+</p>
+
+<%= link_to 'Edit', edit_doc_path(@doc) %> |
+<%= link_to 'Back', docs_path %>

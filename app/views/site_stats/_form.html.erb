@@ -1,0 +1,77 @@
+<%= form_for(@site_stat) do |f| %>
+  <% if @site_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@site_stat.errors.count, "error") %> prohibited this site_stat from being saved:</h2>
+
+      <ul>
+      <% @site_stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :doc_site_id %><br>
+    <%= f.number_field :doc_site_id %>
+  </div>
+  <div class="field">
+    <%= f.label :address_1 %><br>
+    <%= f.text_field :address_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address_2 %><br>
+    <%= f.text_field :address_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :hours %><br>
+    <%= f.text_field :hours %>
+  </div>
+  <div class="field">
+    <%= f.label :review_count %><br>
+    <%= f.number_field :review_count %>
+  </div>
+  <div class="field">
+    <%= f.label :one_star_count %><br>
+    <%= f.number_field :one_star_count %>
+  </div>
+  <div class="field">
+    <%= f.label :five_star_count %><br>
+    <%= f.number_field :five_star_count %>
+  </div>
+  <div class="field">
+    <%= f.label :avg_rating %><br>
+    <%= f.text_field :avg_rating %>
+  </div>
+  <div class="field">
+    <%= f.label :search_rank %><br>
+    <%= f.number_field :search_rank %>
+  </div>
+  <div class="field">
+    <%= f.label :first_page %><br>
+    <%= f.check_box :first_page %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

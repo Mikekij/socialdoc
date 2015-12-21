@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tracked Sites</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tracked_sites.each do |tracked_site| %>
+      <tr>
+        <td><%= link_to tracked_site.name, tracked_site %></td>
+        <td><%= link_to tracked_site.url, tracked_site.url, target: "_blank" %></td>
+        <td><%= link_to 'Edit', edit_tracked_site_path(tracked_site) %></td>
+        <td><%= link_to ('<i class="glyphicon glyphicon-trash"></i>').html_safe, tracked_site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tracked site', new_tracked_site_path %>

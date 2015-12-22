@@ -1,0 +1,43 @@
+<script>
+$(function () {
+    $('#<%= target_div %>').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: null
+        },
+        xAxis: {
+            categories: [
+                '1',
+                '2',
+                '3',
+                '4',
+                '5'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Count'
+            }
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            },
+            legend: {
+              enabled:false,
+            },
+        },
+        series: [{
+            showInLegend: false,
+            name: 'zocdoc',
+            data: <%= data.map {|x| x[1]} %>
+
+        }]
+    });
+});
+</script>

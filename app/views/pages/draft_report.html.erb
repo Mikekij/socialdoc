@@ -5,93 +5,10 @@
   <h5>Report for January, 2016</h5>
 </div>
 
-<div class="stat-section">
-  <div class="data-source-title">
-    <h2>ZocDoc</h2>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4 col-md-offset-1">
-      <div class="stat-title">Number of Ratings</div>
-    </div>
-    <div class="col-md-3">
-      <div class="stat-value stat-green">14 (+50%)</div>
-    </div>
-    <div class="col-md-4">
-      Graph Here
-    </div>
-  </div><!-- /.row -->
-
-  <div class="row">
-    <div class="col-md-4 col-md-offset-1">
-      <div class="stat-title">Average Rating</div>
-    </div>
-    <div class="col-md-3">
-      <div class="stat-value stat-red">4.2 (-7%)</div>
-    </div>
-    <div class="col-md-4">
-      Graph Here
-    </div>
-  </div><!-- /.row -->
-
-  <div class="row">
-    <div class="col-md-4 col-md-offset-1">
-      <div class="stat-title">5:1 Ratio</div>
-    </div>
-    <div class="col-md-3">
-      <div class="stat-value stat-green">12.0 (+18%)</div>
-    </div>
-    <div class="col-md-4">
-      <div class="graph-container" id="5-1-ratio-div"></div>
-    </div>
-  </div><!-- /.row -->
-
-</div>
+<%= render :partial => "/tracked_sites/site_partials/zocdoc" %>
+<%= render :partial => "/tracked_sites/site_partials/zocdoc" %>
 
 
 <script>
-
-  $(function () {
-      $('#5-1-ratio-div').highcharts({
-          title: {
-              text: '5:1 Ratio',
-              x: -20 //center
-          },
-          xAxis: {
-              categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-          },
-          yAxis: {
-              min: 0,
-              title: {
-                  text: "# of 5s / # of 1s"
-              },
-              plotLines: [{
-                  value: 0,
-                  width: 1,
-                  color: '#808080'
-              }]
-          },
-          plotOptions: {
-            series: {
-                marker: {
-                    enabled: false
-                }
-            }
-          },
-          tooltip: {
-              valueSuffix: '°C'
-          },
-          legend: {
-              enabled:false
-          },
-          series: [{
-              name: '5:1 Ratio',
-              data: [12.0, 14.2, 11, 7, 11, 12.2, 13.5, 14.6, 14.2, 15]
-          }]
-      });
-  });
-
-
 
 </script>

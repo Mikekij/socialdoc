@@ -1,5 +1,12 @@
 $sd-green: #92CA8A;
 $sd-red: #CA2F30;
+$sd-dark-grey: #3B3D3D;
+$sd-medium-grey: #676B6B;
+$sd-light-grey: #F4FDFD;
+
+body {
+-webkit-print-color-adjust: exact;
+}
 
 td {
     overflow: hidden;
@@ -7,22 +14,55 @@ td {
     white-space: nowrap;
 }
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $sd-dark-grey !important;
+}
+
 .stat-green {
-  color:$sd-green;
+  color:$sd-green !important;
 }
 
 .stat-red {
-  color:$sd-red;
+  color:$sd-red !important;
 }
 
 .stat-title {
-  font-size:1.2em;
+  font-size:1.5em;
+  float:left;
+  color: $sd-medium-grey !important;
+
 }
 
 .stat-value {
   font-size:2em;
+  float:right;
 }
 
 .graph-container {
   height:250px;
+}
+
+.stat-row {
+  padding-bottom: 10px;
+  margin: 0px 0px 30px 0px;
+}
+
+.stat-header-row {
+  padding:0px 10px 0px 10px;
+}
+
+.info-container {
+  float:left;
+  margin-left:10px;
+  padding:15px 10px 10px 10px;
+  background-color:$sd-light-grey !important;
+}
+
+.doc-info-item {
+  float:left;
+  width:100%;
+  padding-bottom:5px;
+  font-weight: bold;
+  font-size: 1.5em;
 }

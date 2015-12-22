@@ -1,0 +1,114 @@
+<div class=row>
+  <h1>Dr. Acula, M.D.</h1>
+</div>
+<div class=row>
+  <h5>Report for January, 2016</h5>
+</div>
+
+<div class="stat-section">
+  <div class="data-source-title">
+    <h2>ZocDoc</h2>
+  </div>
+
+  <div class="row stat-row">
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Number of Ratings: </div>
+        <div class="stat-value stat-green">14 (+50%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="avg-rating-div-2"></div>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "avg-rating-div-2"} %>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Average Rating</div>
+        <div class="stat-value stat-red">4.2 (-7%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="avg-rating-div"></div>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "avg-rating-div"} %>
+
+      </div>
+    </div>
+
+
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">5:1 Ratio</div>
+        <div class="stat-value stat-green">12.0 (+18%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="5-1-ratio-div"></div>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "5-1-ratio-div"} %>
+
+      </div>
+    </div>
+
+  </div><!-- /.row -->
+
+  <div class="row stat-row">
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Rating Distribution </div>
+        <div class="stat-value stat-green"></div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="rating-histogram"></div>
+        <%= render :partial => "/site_stats/stat_graphs/histogram", :locals => {target_div: "rating-histogram"} %>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">One Star Ratings</div>
+        <div class="stat-value stat-green">6 (+0%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="one-star-rating-div"></div>
+        <% data = [[0,4],[1,4],[2,5],[3,6],[4,6],[5,6]] %>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "one-star-rating-div", data: data.to_json} %>
+
+      </div>
+    </div>
+
+
+
+
+
+  </div><!-- /.row -->
+
+  <div class="row stat-row">
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">5:1 Ratio</div>
+        <div class="stat-value stat-green">12.0 (+18%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="5-1-ratio-div"></div>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "5-1-ratio-div"} %>
+
+      </div>
+    </div>
+
+
+  </div><!-- /.row -->
+
+
+</div><!-- /stat_section -->
+
+
+<script>
+
+
+
+</script>

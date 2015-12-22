@@ -1,0 +1,117 @@
+<div class="stat-section">
+  <div class="data-source-title">
+    <h2>ZocDoc</h2>
+  </div>
+
+  <div class="row stat-row">
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Demo Info</div>
+      </div>
+      <div class=row>
+        <div class="info-container" id="">
+          <div class="doc-info-item stat-green">Dr. Vladamir Acula</div>
+          <div class="doc-info-item stat-green">1500 N. El Camino Real</div>
+          <div class="doc-info-item stat-green">Encinitas, CA 92024</div>
+          <div class="doc-info-item stat-green">760-555-1212</div>
+          <div class="doc-info-item stat-red">7AM - 9PM M-F</div>
+          <div class="doc-info-item stat-green">www.DrAcula.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Number of Ratings: </div>
+        <div class="stat-value stat-green">14 (+50%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="avg-rating-div-2"></div>
+        <% different_data = [[0,4],[1,4],[2,5],[3,6],[4,7],[5,14]] %>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "avg-rating-div-2", y_axis_text: "Count", data: different_data} %>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Average Rating</div>
+        <div class="stat-value stat-red">4.2 (-7%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="avg-rating-div"></div>
+        <% data = [[0,4.8],[1,4.8],[2,4.9],[3,4.1],[4,4.4],[5,4.2]] %>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "avg-rating-div", y_axis_text: "Rating", data: data} %>
+
+      </div>
+    </div>
+
+  </div><!-- /.row -->
+
+  <div class="row stat-row">
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">5:1 Ratio</div>
+        <div class="stat-value stat-green">3.66 (+18%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="5-1-ratio-div"></div>
+        <% data = [[0,2],[1,3.1],[2,2.7],[3,3.2],[4,3],[5,3.66]] %>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "5-1-ratio-div", y_axis_text: "Ratio", data: data} %>
+
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Rating Distribution </div>
+        <div class="stat-value stat-green"></div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="rating-histogram"></div>
+        <% data = [[1,6],[2,2],[3,3],[4,14],[5,22]] %>
+        <%= render :partial => "/site_stats/stat_graphs/histogram", :locals => {target_div: "rating-histogram", y_axis_text: "Count", data: data} %>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">One Star Ratings</div>
+        <div class="stat-value stat-green">6 (+0%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="one-star-rating-div"></div>
+        <% data = [[0,4],[1,4],[2,5],[3,6],[4,6],[5,6]] %>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "one-star-rating-div", data: data, y_axis_text: "Count"} %>
+
+      </div>
+    </div>
+
+
+  </div><!-- /.row -->
+
+  <div class="row stat-row">
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Five Star Ratings</div>
+        <div class="stat-value stat-green">22 (+5%)</div>
+      </div>
+      <div class=row>
+        <div class="graph-container" id="five-star-rating-div"></div>
+        <% data = [[0,9],[1,11],[2,13],[3,18],[4,20],[5,22]] %>
+        <%= render :partial => "/site_stats/stat_graphs/line_graph", :locals => {target_div: "five-star-rating-div", data: data, y_axis_text: "Count"} %>
+
+      </div>
+    </div>
+
+  </div><!-- /.row -->
+
+
+
+</div><!-- /stat_section -->

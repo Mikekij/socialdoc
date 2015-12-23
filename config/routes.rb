@@ -12,7 +12,7 @@ Rails.application.routes.draw do
    root 'pages#home'
 
    get 'draft_report' => 'pages#draft_report'
-   get 'docs/:id/report' => 'pages#report'
+   get 'docs/:id/report' => 'pages#report', as: 'doc_report'
 
 
   # Example of regular route:

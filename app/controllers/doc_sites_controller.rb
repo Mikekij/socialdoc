@@ -17,6 +17,7 @@ class DocSitesController < ApplicationController
     @doc_site = DocSite.new
     @docs = Doc.all
     @tracked_sites = TrackedSite.all
+    @doc = Doc.find(params[:doc_id]) unless params[:doc_id].nil?
   end
 
   # GET /doc_sites/1/edit
@@ -30,10 +31,10 @@ class DocSitesController < ApplicationController
   # POST /doc_sites.json
   def create
     @doc_site = DocSite.new(doc_site_params)
-
+    @doc = @doc_site.doc
     respond_to do |format|
       if @doc_site.save
-        format.html { redirect_to @doc_site, notice: 'Doc site was successfully created.' }
+        format.html { redirect_to @doc, notice: 'Doc/Site was successfully created.' }
         format.json { render :show, status: :created, location: @doc_site }
       else
         format.html { render :new }

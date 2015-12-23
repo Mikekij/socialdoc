@@ -28,7 +28,7 @@ class DocsController < ApplicationController
 
     respond_to do |format|
       if @doc.save
-        format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
+        format.html { redirect_to new_doc_site_path(:doc_id => @doc.id), notice: 'Doc was successfully created. Select a site to be tracked.' }
         format.json { render :show, status: :created, location: @doc }
       else
         format.html { render :new }

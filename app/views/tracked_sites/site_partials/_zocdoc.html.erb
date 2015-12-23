@@ -1,6 +1,6 @@
 <div class="stat-section">
   <div class="data-source-title">
-    <h2>ZocDoc</h2>
+    <h2><%= link_to "ZocDoc", @doc.doc_sites.where(:tracked_site_id => 1).last.url, target: "_blank" %></h2>
   </div>
 
   <div class="row stat-row">
@@ -54,7 +54,7 @@
       <div class="row stat-header-row">
         <div class="stat-title">5:1 Ratio</div>
         <% ratio = rating_distribution["five"].to_f / rating_distribution["one"].to_f %>
-        <div class="stat-value stat-green"><%= ratio %> (+18%)</div>
+        <div class="stat-value stat-green"><%= number_with_precision(ratio, :precision => 1) %> (+18%)</div>
       </div>
       <div class=row>
         <div class="graph-container" id="5-1-ratio-div"></div>

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :doc_id %><br>
-    <%= f.collection_select(:doc_id, @docs, :id, :name_doctorized, prompt: true) %>
+    <%= f.collection_select(:doc_id, @docs, :id, :name_doctorized, prompt: true, :selected => selected(@doc)) %>
 
   </div>
   <div class="field">

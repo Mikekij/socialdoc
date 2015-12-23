@@ -15,7 +15,7 @@
   <tbody>
     <% @doc_sites.each do |doc_site| %>
       <tr>
-        <td><%= link_to doc_site.doc.name_doctorized, doc_site.doc %></td>
+        <td><%= link_to name_doctorized(doc_site.doc), doc_site.doc %></td>
         <td><%= link_to doc_site.tracked_site.name, doc_site.tracked_site %></td>
         <td style="max-width:300px; overflow:hidden;"><%= link_to doc_site.url, doc_site.url, target: "_blank" %></td>
         <td><%= link_to 'Edit', edit_doc_site_path(doc_site) %></td>

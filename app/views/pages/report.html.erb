@@ -1,0 +1,13 @@
+<div class=row>
+  <h1><%= name_doctorized(@doc) %></h1>
+</div>
+<div class=row>
+  <b>Data Last Processed:</b> <%= @site_stat.processed_date.strftime("%B %d, %Y") %>
+</div>
+
+<%= render :partial => "/tracked_sites/site_partials/zocdoc", :locals => {:site_stat => @site_stat, :rating_distribution => @rating_distribution} %>
+
+
+<script>
+
+</script>

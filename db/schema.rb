@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223200626) do
+ActiveRecord::Schema.define(version: 20151223205612) do
 
   create_table "doc_sites", force: :cascade do |t|
     t.integer  "doc_id"
@@ -54,10 +54,12 @@ ActiveRecord::Schema.define(version: 20151223200626) do
     t.float    "avg_rating"
     t.integer  "search_rank"
     t.boolean  "first_page"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.date     "processed_date"
     t.string   "practice_name"
+    t.string   "doc_name"
+    t.text     "rating_distribution"
   end
 
   create_table "tracked_sites", force: :cascade do |t|

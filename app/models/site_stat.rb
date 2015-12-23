@@ -11,10 +11,14 @@ class SiteStat < ActiveRecord::Base
     #get the page content
     m = Mechanize.new {|a| a.ssl_version, a.verify_mode = 'TLSv1',OpenSSL::SSL::VERIFY_NONE}
     page = m.get(doc_site.url)
+    parsed_page = page.parser
 
     puts page
 
     #get demo info
+    #doc name
+    @site_stat.doc_name = page.at('[itemprop="name"]').content unless page.at('[itemprop="name"]').nil?
+
     #address_1
     puts page.at('[itemprop="streetAddress"]')
     content1 = page.at('[itemprop="streetAddress"]').content
@@ -49,6 +53,18 @@ class SiteStat < ActiveRecord::Base
     @site_stat.avg_rating = page.at('meta[@itemprop="ratingValue"]')[:content]
     #rating count
     @site_stat.review_count = page.at('meta[@itemprop="reviewCount"]')[:content]
+
+    #ratings histogram data
+
+    ratings_distribution = {}
+
+    ratings_distribution["five"] = parsed_page.css('.sg-rating-5_0').count
+    ratings_distribution["four"] = parsed_page.css('.sg-rating-4_0').count
+    ratings_distribution["three"] = parsed_page.css('.sg-rating-3_0').count
+    ratings_distribution["two"] = parsed_page.css('.sg-rating-2_0').count
+    ratings_distribution["one"] = parsed_page.css('.sg-rating-1_0').count
+
+    @site_stat.rating_distribution = ratings_distribution.to_json
 
     #new ratings
 

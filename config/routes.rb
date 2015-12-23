@@ -12,6 +12,8 @@ Rails.application.routes.draw do
    root 'pages#home'
 
    get 'draft_report' => 'pages#draft_report'
+   get 'docs/:id/report' => 'pages#report'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

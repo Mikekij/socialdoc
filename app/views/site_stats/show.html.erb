@@ -75,5 +75,15 @@
   <%= @site_stat.first_page %>
 </p>
 
+<p>
+  <strong>Practice Name:</strong>
+  <%= @site_stat.practice_name %>
+</p>
+
+<p>
+  <strong>Last Processed Date:</strong>
+  <%= @site_stat.processed_date %>
+</p>
+
 <%= link_to 'Edit', edit_site_stat_path(@site_stat) %> |
 <%= link_to 'Back', site_stats_path %>

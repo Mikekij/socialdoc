@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'mechanize'
 gem 'devise'
-
+gem 'nokogiri'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-sass', '~> 4.2.0'

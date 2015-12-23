@@ -21,6 +21,9 @@ class DocSitesController < ApplicationController
 
   # GET /doc_sites/1/edit
   def edit
+    @doc_site = DocSite.find(params[:id])
+    @docs = Doc.all
+    @tracked_sites = TrackedSite.all
   end
 
   # POST /doc_sites

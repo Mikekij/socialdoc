@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221185827) do
+ActiveRecord::Schema.define(version: 20151223200626) do
 
   create_table "doc_sites", force: :cascade do |t|
     t.integer  "doc_id"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20151221185827) do
     t.boolean  "first_page"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.date     "processed_date"
+    t.string   "practice_name"
   end
 
   create_table "tracked_sites", force: :cascade do |t|

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223205612) do
+ActiveRecord::Schema.define(version: 20160104225812) do
 
   create_table "doc_sites", force: :cascade do |t|
     t.integer  "doc_id"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20151223205612) do
     t.string   "url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "data_1"
+    t.string   "data_2"
+    t.string   "data_3"
+    t.string   "data_4"
   end
 
   create_table "docs", force: :cascade do |t|
@@ -60,6 +64,7 @@ ActiveRecord::Schema.define(version: 20151223205612) do
     t.string   "practice_name"
     t.string   "doc_name"
     t.text     "rating_distribution"
+    t.text     "search_results"
   end
 
   create_table "tracked_sites", force: :cascade do |t|

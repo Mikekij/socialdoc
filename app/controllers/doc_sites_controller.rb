@@ -25,6 +25,7 @@ class DocSitesController < ApplicationController
     @doc_site = DocSite.find(params[:id])
     @docs = Doc.all
     @tracked_sites = TrackedSite.all
+    @doc = Doc.find(params[:doc_id]) unless params[:doc_id].nil?
   end
 
   # POST /doc_sites
@@ -75,6 +76,6 @@ class DocSitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doc_site_params
-      params.require(:doc_site).permit(:doc_id, :tracked_site_id, :url)
+      params.require(:doc_site).permit(:doc_id, :tracked_site_id, :url, :data_1, :data_2, :data_3, :data_4)
     end
 end

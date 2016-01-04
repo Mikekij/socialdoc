@@ -2,12 +2,12 @@
 
 <p>
   <strong>Doc:</strong>
-  <%= @doc_site.doc_id %>
+  <%= "#{@doc_site.doc.first_name} #{@doc_site.doc.last_name}, #{@doc_site.doc.title}" %>
 </p>
 
 <p>
   <strong>Tracked site:</strong>
-  <%= @doc_site.tracked_site_id %>
+  <%= @doc_site.tracked_site.name %>
 </p>
 
 <p>
@@ -15,5 +15,25 @@
   <%= @doc_site.url %>
 </p>
 
-<%= link_to 'Edit', edit_doc_site_path(@doc_site) %> |
+<p>
+  <strong>Data 1:</strong>
+  <%= @doc_site.data_1 %>
+</p>
+
+<p>
+  <strong>Data 2:</strong>
+  <%= @doc_site.data_2 %>
+</p>
+
+<p>
+  <strong>Data 3:</strong>
+  <%= @doc_site.data_3 %>
+</p>
+
+<p>
+  <strong>Data 4:</strong>
+  <%= @doc_site.data_4 %>
+</p>
+
+<%= link_to 'Edit', edit_doc_site_path(@doc_site, :doc_id => @doc_site.doc.id) %> |
 <%= link_to 'Back', doc_sites_path %>

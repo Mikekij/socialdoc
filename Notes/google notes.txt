@@ -1,0 +1,76 @@
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.0388391,-117.2941468&radius=500&name=gersten&key=AIzaSyApD_aS1Ay1bIb-g6dQrD9Gn1Djsyv8qjg
+
+
+https://maps.googleapis.com/maps/api/place/details/json?placeid=5627d6407451fb9446d42a4ace49f507ee6acc48&key=AIzaSyApD_aS1Ay1bIb-g6dQrD9Gn1Djsyv8qjg
+
+
+Google Places
+
+1 Add section in report DONE
+2 add user's place_id as attribute on something DONE
+3 make API call to get place info DONE
+4 parse the resulting data into the SiteStat DONE
+4 display that info in report DONE
+
+r = HTTParty.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ59XlfEAM3IARO1VQIG3lwWw&key=AIzaSyApD_aS1Ay1bIb-g6dQrD9Gn1Djsyv8qjg', :verify => false ).parsed_response
+
+add.find { |x| x["types"].include?("locality")}
+
+------------------------------------------------------
+
+
+Google search results
+
+1 add section in report DONE
+2 add search query as attribute on something DONE
+3 use mechanize to get the search results 
+4 parse results
+5 display top 5 results in report
+6 true/false if user specified URL is one of top 10 search results
+
+
+*****
+
+require 'rubygems'
+require 'mechanize'
+
+agent = Mechanize.new
+agent.set_proxy '78.186.178.153', 8080
+page = agent.get('http://www.google.com/')
+
+google_form = page.form('f')
+google_form.q = 'new york city council'
+
+page = agent.submit(google_form, google_form.buttons.first)
+
+page.links.each do |link|
+    if link.href.to_s =~/url.q/ and !link.href.to_s.include?("webcache")
+        str=link.href.to_s
+        strList=str.split(%r{=|&}) 
+        url=strList[1] 
+        puts url
+    end 
+end
+
+*****
+
+
+
+
+r = HTTParty.get('http://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&q=' + ds.data_1, :verify => false )
+
+p = JSON.parse(r.parsed_response)
+
+(p["responseData"]["results"]).each do |d|
+	puts d["visibleUrl"]
+end
+
+
+
+Make graphs, trends live
+
+
+
+
+
+

@@ -77,4 +77,69 @@ class SiteStat < ActiveRecord::Base
     return @site_stat
   end
 
+  def self.scrape_google(doc_site)
+    puts "url: #{doc_site.url}"
+    puts "search string: #{doc_site.data_1}"
+    puts "google placeId: #{doc_site.data_2}"
+    placeId = doc_site.data_2
+
+    @site_stat = SiteStat.find_or_create_by(:doc_site_id => doc_site.id, :processed_date => Date.today)
+
+    #get the Google PLaces info
+    base_url = "https://maps.googleapis.com/maps/api/place/details/json?"
+    place_id = "placeid=#{placeId}"
+    api_key = "&key=AIzaSyApD_aS1Ay1bIb-g6dQrD9Gn1Djsyv8qjg"
+    concat_url = base_url + place_id + api_key
+
+    api_results = HTTParty.get(concat_url, :verify => false ).parsed_response["result"]
+
+    #parse results, insert into @site_stat
+    @site_stat.address_1 = api_results["address_components"].find { |x| x["types"].include?("street_number")}["long_name"] + " " + api_results["address_components"].find { |x| x["types"].include?("route")}["long_name"]
+    @site_stat.city = api_results["address_components"].find { |x| x["types"].include?("locality")}["long_name"]
+    @site_stat.state = api_results["address_components"].find { |x| x["types"].include?("administrative_area_level_1")}["short_name"]
+    @site_stat.zip = api_results["address_components"].find { |x| x["types"].include?("postal_code")}["long_name"]
+    @site_stat.phone =  api_results["formatted_phone_number"]
+    @site_stat.url =  api_results["website"]
+    @site_stat.doc_name = api_results["name"]
+
+    @site_stat.save!
+
+
+    return api_results
+    #return @site_stat
+  end
+
+  def self.scrape_google_search_results(doc_site)
+    puts doc_site.url
+    @site_stat = SiteStat.find_or_create_by(:doc_site_id => doc_site.id, :processed_date => Date.today)
+    #get the page content
+    m = Mechanize.new {|a| a.ssl_version, a.verify_mode = 'TLSv1',OpenSSL::SSL::VERIFY_NONE}
+    page = m.get('http://www.google.com/')
+    google_form = page.form('f')
+    google_form.q = doc_site.data_1
+    page = m.submit(google_form, google_form.buttons.first)
+
+    #puts page
+
+    results_array = []
+
+    page.links.each do |link|
+      if link.href.to_s =~/url.q/ and !link.href.to_s.include?("webcache") and !link.href.to_s.include?("/settings/ads/preferences") #this is hacky
+          str=link.href.to_s
+          strList=str.split(%r{=|&})
+          url=strList[1]
+          puts url
+          results_array << url
+      end
+    end
+
+    @site_stat.search_results = results_array.to_json
+    @site_stat.save!
+
+    return results_array
+
+
+  end
+
+
 end

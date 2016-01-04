@@ -1,0 +1,42 @@
+<div class="stat-section">
+  <div class="data-source-title">
+    <h2><%= link_to "Google", @doc.doc_sites.where(:tracked_site_id => 2).last.url, target: "_blank" %></h2>
+  </div>
+
+  <div class="row stat-row">
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Google Places Info</div>
+      </div>
+      <div class=row>
+        <div class="info-container" id="">
+          <div class="doc-info-item stat-green"><%= site_stat.doc_name %></div>
+          <div class="doc-info-item stat-green"><%= site_stat.address_1 %></div>
+          <div class="doc-info-item stat-green"><%= "#{site_stat.city}, #{site_stat.state} #{site_stat.zip}" %></div>
+          <div class="doc-info-item stat-green"><%= site_stat.practice_name %></div>
+          <div class="doc-info-item stat-green"><%= site_stat.phone %></div>
+          <div class="doc-info-item stat-green"><%= site_stat.url %></div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="row stat-header-row">
+        <div class="stat-title">Google Search Results</div>
+      </div>
+      <div class=row>
+        <ol>
+          <% if !site_stat.search_results.nil? %>
+            <% JSON.parse(site_stat.search_results).each do |r| %>
+              <%= url_test(r, site_stat.doc_site.doc.last_name).html_safe %>
+            <% end %>
+          <% end %>
+        </ol>
+      </div><!-- /.row -->
+    </div>
+
+  </div><!-- /.row -->
+
+
+</div><!-- /stat_section -->

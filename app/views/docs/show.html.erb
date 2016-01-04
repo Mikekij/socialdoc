@@ -60,6 +60,15 @@
   <%= @doc.email %>
 </p>
 
+<strong>Doc Sites</strong>
+<ul>
+  <% @doc.doc_sites.each do |d| %>
+    <li><%= link_to d.tracked_site.name, d %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add Tracked Site', new_doc_site_path(:doc_id => @doc.id) %> |
+
+
 <%= link_to 'Edit', edit_doc_path(@doc) %> |
 <%= link_to 'Back', docs_path %> |
 <%= link_to 'Report', doc_report_path(@doc) %>

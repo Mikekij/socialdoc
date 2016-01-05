@@ -27,4 +27,25 @@ class PagesController < ApplicationController
 
   end
 
+  def get_place_id
+
+  end
+
+  def google_api_submit
+    location_string = params["/google_api_submit"][:location_string]
+    name_string = params["/google_api_submit"][:name_string]
+    doc_id = params["/google_api_submit"][:doc_id]
+    #puts "doc_id: #{doc_id}"
+
+    #puts location_string
+
+    #place_id = "1234fagd"
+
+    place_id = SiteStat.get_google_place_id(location_string, name_string)
+
+
+    redirect_to new_doc_site_path(:place_id => place_id, :doc_id => doc_id)
+
+  end
+
 end

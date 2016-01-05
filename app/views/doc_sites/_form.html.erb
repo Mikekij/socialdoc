@@ -26,12 +26,12 @@
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :data_1 %><br>
+    <%= f.label "Google Search String" %><br>
     <%= f.text_field :data_1 %>
   </div>
   <div class="field">
-    <%= f.label :data_2 %><br>
-    <%= f.text_field :data_2 %>
+    <%= f.label "Google Place ID" %> <%= link_to "(get place id)", get_place_id_path(doc_id: params[:doc_id]) %><br>
+    <%= f.text_field :data_2, :value => params[:place_id] %>
   </div>
   <div class="field">
     <%= f.label :data_3 %><br>

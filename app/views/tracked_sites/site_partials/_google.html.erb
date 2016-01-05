@@ -28,7 +28,7 @@
       <div class=row>
         <ol>
           <% if !site_stat.search_results.nil? %>
-            <% JSON.parse(site_stat.search_results).each do |r| %>
+            <% JSON.parse(site_stat.search_results).first(15).each do |r| %>
               <%= url_test(r, site_stat.doc_site.doc.last_name).html_safe %>
             <% end %>
           <% end %>

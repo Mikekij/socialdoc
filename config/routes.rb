@@ -14,6 +14,8 @@ Rails.application.routes.draw do
    get 'draft_report' => 'pages#draft_report'
    get 'docs/:id/report' => 'pages#report', as: 'doc_report'
 
+   get 'get_place_id' => 'pages#get_place_id', as: 'get_place_id'
+   post 'google_api_submit' => 'pages#google_api_submit', as: 'google_api_submit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

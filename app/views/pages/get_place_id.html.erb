@@ -1,0 +1,18 @@
+<%= form_for(google_api_submit_path, :url => google_api_submit_path) do |f| %>
+
+  <div class="field">
+    <%= f.label :location_string %><br>
+    <%= f.text_field :location_string %>
+  </div>
+  <div class="field">
+    <%= f.label :name_string %><br>
+    <%= f.text_field :name_string %>
+  </div>
+
+  <%= f.hidden_field :doc_id, :value => params[:doc_id] %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

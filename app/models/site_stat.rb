@@ -93,9 +93,17 @@ class SiteStat < ActiveRecord::Base
 
     api_results = HTTParty.get(concat_url, :verify => false ).parsed_response["result"]
 
+    puts "api_results: #{api_results}"
+
     #parse results, insert into @site_stat
     @site_stat.address_1 = api_results["address_components"].find { |x| x["types"].include?("street_number")}["long_name"] + " " + api_results["address_components"].find { |x| x["types"].include?("route")}["long_name"]
-    @site_stat.city = api_results["address_components"].find { |x| x["types"].include?("locality")}["long_name"]
+
+    if !api_results["address_components"].find { |x| x["types"].include?("locality")}.nil?
+      @site_stat.city = api_results["address_components"].find { |x| x["types"].include?("locality")}["long_name"]
+    elsif !api_results["address_components"].find { |x| x["types"].include?("sublocality")}.nil?
+      @site_stat.city = api_results["address_components"].find { |x| x["types"].include?("sublocality")}["long_name"]
+    end
+
     @site_stat.state = api_results["address_components"].find { |x| x["types"].include?("administrative_area_level_1")}["short_name"]
     @site_stat.zip = api_results["address_components"].find { |x| x["types"].include?("postal_code")}["long_name"]
     @site_stat.phone =  api_results["formatted_phone_number"]
@@ -141,5 +149,21 @@ class SiteStat < ActiveRecord::Base
 
   end
 
+  def self.get_google_place_id(location_string, name_string)
+
+    base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
+    url_middle = "&radius=500&name="
+    url_end = "&key=AIzaSyApD_aS1Ay1bIb-g6dQrD9Gn1Djsyv8qjg"
+
+    url = base_url + location_string + url_middle + name_string + url_end
+
+    r = HTTParty.get(url,:verify => false )
+    puts r
+
+    place_id = r["results"][0]["place_id"]
+
+    return place_id
+
+  end
 
 end

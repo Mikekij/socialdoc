@@ -16,6 +16,8 @@ class PagesController < ApplicationController
       SiteStat.scrape_zoc_doc(@doc.doc_sites.where(:tracked_site_id => 1).last)
       @zoc_doc_site_stat = SiteStat.joins(:doc_site).where('tracked_site_id = ? AND doc_id = ?', 1, @doc.id).last
       @zoc_doc_rating_distribution = JSON.parse(@zoc_doc_site_stat.rating_distribution)
+      @zoc_doc_site_stats = @doc.site_stats.joins(:doc_site).where('doc_sites.tracked_site_id = 1')
+
     end
 
     #google

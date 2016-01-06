@@ -5,7 +5,7 @@
   <b>Data Last Processed:</b> <%= @zoc_doc_site_stat.processed_date.strftime("%B %d, %Y") %>
 </div>
 
-<%= render :partial => "/tracked_sites/site_partials/zocdoc", :locals => {:site_stat => @zoc_doc_site_stat, :rating_distribution => @zoc_doc_rating_distribution} unless @zoc_doc_site_stat.nil? %>
+<%= render :partial => "/tracked_sites/site_partials/zocdoc", :locals => {:site_stat => @zoc_doc_site_stat, :site_stats => @zoc_doc_site_stats, :rating_distribution => @zoc_doc_rating_distribution} unless @zoc_doc_site_stat.nil? %>
 <%= render :partial => "/tracked_sites/site_partials/google", :locals => {:site_stat => @google_site_stat, :rating_distribution => @google_rating_distribution} unless @google_site_stat.nil?  %>
 
 

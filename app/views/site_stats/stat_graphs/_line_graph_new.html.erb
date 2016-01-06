@@ -1,0 +1,40 @@
+<script>
+  $(function () {
+      $('#<%= target_div %>').highcharts({
+          title: {
+            text: null,
+          },
+          xAxis: {
+              type: 'datetime',
+              dateTimeLabelFormats: {
+                day: '%b %e'
+              }
+          },
+          yAxis: {
+              min: 0,
+              title: {
+                  text: '<%= y_axis_text %>'
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }]
+          },
+          plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }
+            }
+          },
+          legend: {
+              enabled:false
+          },
+          series: [{
+              name: '<%= title %>',
+              data: <%= data %>
+          }]
+      });
+  });
+</script>
